@@ -1,6 +1,9 @@
 import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+
+load_dotenv()   # lê o arquivo .env e coloca os valores nas variáveis de ambiente
 
 # Ex.: postgresql+psycopg://postgres:SUA_SENHA@localhost:5432/farm
 # A senha fica no .env / variável de ambiente, nunca no código.
