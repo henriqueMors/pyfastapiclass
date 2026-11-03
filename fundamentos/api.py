@@ -32,6 +32,10 @@ class AtualizaJogador(BaseModel):
 #get-jogador/?id=1 - Query Parameter
 #get-jogador-time?time="fsfd"
 
+# API Métodos #
+@app.get("/")
+def inicio():
+    return jogadores
 
 @app.get("/get-jogador/{id_jogador}")
 def get_jogador(id_jogador:int):
@@ -43,11 +47,6 @@ def get_jogador_time(time:str):
         if jogadores[jogador_id]["time"] == time:
             return jogadores[jogador_id]
     return {"Dados": "Não foi encontrado"}
-
-# API Métodos #
-@app.get("/")
-def inicio():
-    return jogadores
 
 
 @app.post("/cadastra-jogador/{jogador_id}")
