@@ -32,6 +32,7 @@ class AtualizaJogador(BaseModel):
 #get-jogador/?id=1 - Query Parameter
 #get-jogador-time?time="fsfd"
 
+
 @app.get("/get-jogador/{id_jogador}")
 def get_jogador(id_jogador:int):
     return jogadores[id_jogador]
@@ -47,6 +48,7 @@ def get_jogador_time(time:str):
 @app.get("/")
 def inicio():
     return jogadores
+
 
 @app.post("/cadastra-jogador/{jogador_id}")
 def cadastra_jogador(jogador_id: int, jogador: Jogador):
