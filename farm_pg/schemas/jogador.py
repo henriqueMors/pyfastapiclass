@@ -5,6 +5,7 @@ class JogadorEntrada(BaseModel):            # o que a API RECEBE
     nome: str
     idade: int
     time: str
+    numero_camisa: int | None = None
 
 
 class JogadorSaida(JogadorEntrada):         # o que a API DEVOLVE (com id)
