@@ -4,7 +4,10 @@ import axios from "axios";
 function Jogador(props) {
     const excluirJogador = (jogadorId) => {
         axios.delete(`http://127.0.0.1:8000/jogadores/${jogadorId}`)
-            .then(() => alert('Jogador removido com sucesso'))
+            .then(() => {
+                props.aoExcluir(jogadorId)
+                alert('Jogador removido com sucesso')
+            })
             .catch(error => console.log(error))
     }
 

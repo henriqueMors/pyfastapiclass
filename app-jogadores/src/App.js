@@ -11,6 +11,7 @@ function App() {
   const [jogadorIdade, setJogadorIdade] = useState('');
   const [jogadorTime, setJogadorTime] = useState('');
   const [jogadorNumeroCamisa, setJogadorNumeroCamisa] = useState('');
+  const removerDaLista = (jogadorId) => { setJogadorList(lista => lista.filter(jogador => jogador.id !== jogadorId))}
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/jogadores')
@@ -29,7 +30,8 @@ function App() {
     }
     axios.post('http://127.0.0.1:8000/jogadores', jogador)
       .then(resposta => {
-        alert('Jogador cadastrado: ' + resposta.data.nome)
+        setJogadorList(lista => [...lista, resposta.data])       // acrescenta na tela
+        setTimeout(() => alert('Jogador cadastrado: ' + resposta.data.nome), 100)
       })
       .catch(error => {
         console.log(error)
@@ -74,7 +76,7 @@ function App() {
             Lista de Jogadores
           </h5>
           <div>
-            <JogadorList jogadorList={jogadorList} />
+            <JogadorList jogadorList={jogadorList} aoExcluir={removerDaLista} />
           </div>
         </div>
         <h6 className='card text-center text-white bg-success card mb-1 pb-1'>
