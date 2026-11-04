@@ -6,7 +6,7 @@ from routes.jogador import jogador_router
 
 Base.metadata.create_all(engine)            # cria as tabelas que ainda não existem
 
-app = FastAPI(title="FullStack Farm - PostgreSQL")
+app = FastAPI(title="CRUD SEP - PostgreSQL")
 app.include_router(jogador_router)
 
 app.add_middleware(
