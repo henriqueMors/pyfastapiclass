@@ -106,7 +106,7 @@ function App() {
           <h5 className='card text-center text-white bg-dark pb-1'>
             Lista de Jogadores
           </h5>
-          <div>
+          <div className='card-body text-center'>
             <JogadorList 
               jogadorList={jogadorList}
               setJogadorId={setJogadorId}

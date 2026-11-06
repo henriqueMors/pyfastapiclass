@@ -21,28 +21,19 @@ function Jogador(props) {
     }
 
     return (
-        <li className="mb-2">
-            <span className="fw-bold">
-                {props.jogador.nome} - {props.jogador.idade} - {props.jogador.time} - {props.jogador.numero_camisa}
-            </span>
-            <button
-                onClick={() => editarJogador(props.jogador)}
-                className='btn btn-sm'
-            >
-                    <span className="badge rounded-pill bg-info">
-                        editar
-                    </span>
+    <li className="list-group-item d-flex justify-content-between align-items-center">
+        <span className="fw-bold">
+            {props.jogador.nome} - {props.jogador.idade} - {props.jogador.time} - {props.jogador.numero_camisa}
+        </span>
+        <div>
+            <button onClick={() => editarJogador(props.jogador)} className='btn btn-sm'>
+                <span className="badge rounded-pill bg-info">editar</span>
             </button>
-            <button 
-                onClick={() => excluirJogador(props.jogador.id)}
-                className='btn btn-sm'
-            >
-                    <span className="badge rounded-pill bg-danger">
-                        x
-                    </span>
-
+            <button onClick={() => excluirJogador(props.jogador.id)} className='btn btn-sm'>
+                <span className="badge rounded-pill bg-danger">x</span>
             </button>
-        </li>
+        </div>
+    </li>
     )
 }
 
