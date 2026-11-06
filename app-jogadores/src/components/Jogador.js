@@ -11,16 +11,36 @@ function Jogador(props) {
             .catch(error => console.log(error))
     }
 
+    const editarJogador = (jogador) => {
+        props.setJogadorId(jogador.id);
+        props.setJogadorNome(jogador.nome);
+        props.setJogadorIdade(jogador.idade);
+        props.setJogadorTime(jogador.time);
+        props.setJogadorNumeroCamisa(jogador.numero_camisa);
+        props.setTextoBotao('Atualizar');
+    }
+
     return (
         <li className="mb-2">
             <span className="fw-bold">
                 {props.jogador.nome} - {props.jogador.idade} - {props.jogador.time} - {props.jogador.numero_camisa}
             </span>
             <button
-                onClick={() => excluirJogador(props.jogador.id)}
-                className="btn btn-danger btn-sm ms-2"
+                onClick={() => editarJogador(props.jogador)}
+                className='btn btn-sm'
             >
-                x
+                    <span className="badge rounded-pill bg-info">
+                        editar
+                    </span>
+            </button>
+            <button 
+                onClick={() => excluirJogador(props.jogador.id)}
+                className='btn btn-sm'
+            >
+                    <span className="badge rounded-pill bg-danger">
+                        x
+                    </span>
+
             </button>
         </li>
     )
